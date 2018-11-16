@@ -7,6 +7,11 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" href="favicon64.ico" sizes="64x64" />
+    <link rel="icon" href="favicon128.ico" sizes="128x128" />
+
     {!! Admin::css() !!}
 
     <script src="{{ Admin::jQuery() }}"></script>
@@ -32,7 +37,7 @@
         {!! Admin::script() !!}
     </div>
 
-    @include('admin::partials.footer')
+    {{--@include('admin::partials.footer')--}}
 
 </div>
 

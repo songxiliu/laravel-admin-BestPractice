@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\Dashboard;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
@@ -12,23 +13,37 @@ class HomeController extends Controller
 {
     public function index(Content $content)
     {
+        $admin_user = Admin::user();
+        $is_ad = $admin_user->isAdministrator();
+        $is_dw = $admin_user->isRole('DWmanager');
+        if($is_dw){
+
+        }
+        if($is_ad) {
+            return $content
+                ->header('Dashboard')
+                ->description('Description...')
+                ->row(Dashboard::title())
+                ->row(function (Row $row) {
+
+                    $row->column(4, function (Column $column) {
+                        $column->append(Dashboard::environment());
+                    });
+
+                    $row->column(4, function (Column $column) {
+                        $column->append(Dashboard::extensions());
+                    });
+
+                    $row->column(4, function (Column $column) {
+                        $column->append(Dashboard::dependencies());
+                    });
+                });
+        }
+
         return $content
-            ->header('Dashboard')
-            ->description('Description...')
-            ->row(Dashboard::title())
-            ->row(function (Row $row) {
+            ->header('您好！')
+            ->description('欢迎使用9B！');
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::environment());
-                });
-
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::extensions());
-                });
-
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::dependencies());
-                });
-            });
     }
+
 }

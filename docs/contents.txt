@@ -1,0 +1,9 @@
+1.1 基础样式修改 --------------------------
+
+删除谷歌 font
+修改 favicon.ico 文件
+删除页面底部 footer
+
+修改时区
+index 页面，只有 admin 看到 Dashboard.
+上传头像 /public/uploads/adminimages

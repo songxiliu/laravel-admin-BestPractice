@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>小松龙溪</b> 9Badmin',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>La</b>',
+    'logo-mini' => '<b>9B</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title' => 'Admin',
+    'title' => '9B',
 
     /*
     |--------------------------------------------------------------------------
@@ -133,8 +133,8 @@ return [
 
         // Image and file upload path under the disk above.
         'directory' => [
-            'image' => 'images',
-            'file'  => 'files',
+            'image' => 'adminimages',
+            'file'  => 'adminfiles',
         ],
     ],
 
