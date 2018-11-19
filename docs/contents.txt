@@ -7,3 +7,19 @@
 修改时区
 index 页面，只有 admin 看到 Dashboard.
 上传头像 /public/uploads/adminimages
+
+2.1 标准 demo --------------------------
+php artisan make:migration create_blog_table
+php artisan migrate
+
+php artisan make:model Blog
+php artisan admin:make BlogController --model=App\\Blog
+app/Admin/routes.php
+$router->resource('blog', BlogController::class);
+
+后台登陆，配置菜单和权限。
+添加 permission
+insert into admin_permissions(name,slug,http_method,http_path) values ('Blog','blog','','/blog*');
+添加 roles Blog 关联权限 Blog
+添加 menu Blog URL="blog"
+
