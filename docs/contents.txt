@@ -23,3 +23,18 @@ insert into admin_permissions(name,slug,http_method,http_path) values ('Blog','b
 添加 roles Blog 关联权限 Blog
 添加 menu Blog URL="blog"
 
+2.2 数据权限 --------------------------
+php artisan make:migration add_votes_to_blog_table --table=blog
+php artisan migrate
+
+添加 datamanager 角色。这个角色可以看全部数据。
+
+使用中间件控制数据权限
+php artisan make:middleware DataAuthority
+在表中增加 admin_id 字段。
+增加 deny 页面。
+
+后续需要数据权限
+1.增加 admin_id 字段。
+2.增加 middleware。
+3.grid 中增加数据过滤。from 中保存 admin_id.

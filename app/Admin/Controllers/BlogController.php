@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Blog;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
@@ -95,6 +96,13 @@ class BlogController extends Controller
             $filter->like('title', '标题');
         });
 
+        // 列表的数据权限控制
+        $admin_user = Admin::user();
+        $has_data = $admin_user->isRole('datamanager');
+        if(!$has_data){
+            $grid->model()->where('admin_id',$admin_user->id);
+        }
+
 //        $grid->disableCreateButton();
 //        $grid->disableActions();
 //        $grid->disablePagination();
@@ -104,6 +112,9 @@ class BlogController extends Controller
 
         $grid->title('标题');
         $grid->updated_at('更新时间');
+        if($has_data) {
+            $grid->adminUsers()->name('创建人');
+        }
         return $grid;
     }
 
@@ -162,8 +173,15 @@ class BlogController extends Controller
         });
 
         //保存前回调
-//        $form->saving(function (Form $form) {
-//        });
+        $form->saving(function (Form $form) {
+            $is_create = empty($form->model()->id);
+            if($is_create){
+                //数据权限控制
+                $admin_user = Admin::user();
+                // 写入 admin_id
+                $form->model()->admin_id = $admin_user->id;
+            }
+        });
 
         //保存后回调
 //        $form->saved(function (Form $form) {

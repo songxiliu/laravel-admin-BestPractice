@@ -11,7 +11,8 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
+    $router->get('/deny', 'HomeController@deny');
 
-    $router->resource('blog', BlogController::class);
+    $router->resource('blog', BlogController::class)->middleware('dataauthority:blog');
 
 });

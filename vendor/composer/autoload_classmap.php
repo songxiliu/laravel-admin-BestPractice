@@ -7,8 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin\\Controllers\\AuthController' => $baseDir . '/app/Admin/Controllers/AuthController.php',
+    'App\\Admin\\Controllers\\BlogController' => $baseDir . '/app/Admin/Controllers/BlogController.php',
     'App\\Admin\\Controllers\\ExampleController' => $baseDir . '/app/Admin/Controllers/ExampleController.php',
     'App\\Admin\\Controllers\\HomeController' => $baseDir . '/app/Admin/Controllers/HomeController.php',
+    'App\\Blog' => $baseDir . '/app/Blog.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -437,6 +439,7 @@ return array(
     'Egulias\\EmailValidator\\Warning\\Warning' => $vendorDir . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
     'Encore\\Admin\\Admin' => $vendorDir . '/encore/laravel-admin/src/Admin.php',
     'Encore\\Admin\\AdminServiceProvider' => $vendorDir . '/encore/laravel-admin/src/AdminServiceProvider.php',
+    'Encore\\Admin\\AuthForm' => $vendorDir . '/encore/laravel-admin/src/AuthForm.php',
     'Encore\\Admin\\Auth\\Database\\AdminTablesSeeder' => $vendorDir . '/encore/laravel-admin/src/Auth/Database/AdminTablesSeeder.php',
     'Encore\\Admin\\Auth\\Database\\Administrator' => $vendorDir . '/encore/laravel-admin/src/Auth/Database/Administrator.php',
     'Encore\\Admin\\Auth\\Database\\HasPermissions' => $vendorDir . '/encore/laravel-admin/src/Auth/Database/HasPermissions.php',

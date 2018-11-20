@@ -46,4 +46,12 @@ class HomeController extends Controller
 
     }
 
+    public function deny(Content $content)
+    {
+        return $content
+            ->header('警告')
+            ->description('非法请求！')
+            ->withError(trans('admin.deny'));
+    }
+
 }
