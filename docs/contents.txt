@@ -8,6 +8,11 @@
 index 页面，只有 admin 看到 Dashboard.
 上传头像 /public/uploads/adminimages
 
+1.2 基础权限配置 --------------------------
+系统默认权限中的 auth.login，auth.setting，作为登陆用户的基础功能，赋予一个角色，并将角色赋予每个用户。
+增加角色 datamanager，作为拥有全部数据权限的标志。此标示在代码中写死。
+在config/app.php 中修改时区和默认语言。
+
 2.1 标准 demo --------------------------
 php artisan make:migration create_blog_table
 php artisan migrate
